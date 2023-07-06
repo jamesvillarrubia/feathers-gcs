@@ -1,0 +1,82 @@
+{
+  "name": "feathers-gcs",
+  "version": "0.0.0-releaseit",
+  "description": "An GCS adapter for simple uploads through FeathersJS.  Allows full-file buffer streams as well as low-memory direct streaming to reduce memory requirements of the Node application.",
+  "main": "lib/",
+  "types": "lib/",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "@feathersjs/errors": "^5.0.0-pre.38",
+    "dauria": "^2.0.0",
+    "mime-types": "^2.1.35",
+    "nock": "^13.3.1"
+  },
+  "peerDependencies": {
+    "@koa/multer": "^3.0.2"
+  },
+  "devDependencies": {
+    "@feathersjs/schema": "^5.0.0-pre.38",
+    "@feathersjs/typebox": "^5.0.0-pre.38",
+    "@feathersjs/feathers": "^5.0.0-pre.38",
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/register": "^7.21.0",
+    "@feathersjs/adapter-tests": "^5.0.0-pre.38",
+    "@feathersjs/koa": "^5.0.0-pre.38",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "cors": "^2.8.5",
+    "eslint": "^8.35.0",
+    "mocha": "^10.2.0",
+    "multer": "^2.0.0-rc.4",
+    "nock": "^13.3.1",
+    "nyc": "^15.1.0",
+    "release-it": "^15.7.0",
+    "semistandard": "^16.0.1"
+  },
+  "engines": {
+    "node": ">= 16"
+  },
+  "scripts": {
+    "lint": "semistandard --fix",
+    "mocha": "mocha --require @babel/register --recursive test/**/*.test.js",
+    "test": "printf '\\33c\\e[3J' && npm run lint && npm run coverage",
+    "build": "babel src -d lib",
+    "test:dev": "printf '\\33c\\e[3J' && npm run lint && npm run mocha -- --watch --esm --parallel --watch-files ./test/**/*,./lib/**",
+    "coverage": "nyc npm run mocha",
+    "release": "release-it --dry-run --ci --config .release-it.js"
+  },
+  "semistandard": {
+    "env": [
+      "mocha"
+    ],
+    "ignore": [
+      "examples/",
+      "node_modules",
+      "lib/"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesvillarrubia/feathers-openai.git"
+  },
+  "keywords": [
+    "feathers",
+    "openai",
+    "nlp",
+    "feathers-plugin"
+  ],
+  "author": {
+    "name": "James Villarrubia",
+    "email": "james.villarrubia@gmail.com"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamesvillarrubia/feathers-openai/issues"
+  },
+  "homepage": "https://github.com/jamesvillarrubia/feathers-openai#readme"
+}
